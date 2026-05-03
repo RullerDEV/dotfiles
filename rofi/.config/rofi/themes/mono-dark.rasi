@@ -1,0 +1,108 @@
+* {
+    bg:        #0a0a0a;
+    surface:   #141414;
+    surface2:  #1f1f1f;
+    border:    #2a2a2a;
+    muted:     #6e6e6e;
+    fg:        #e8e8e8;
+    fg-bold:   #fafafa;
+    accent:    #fafafa;
+    urgent:    #d4d4d4;
+
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "Maple Mono NF 12";
+}
+
+window {
+    width:            640px;
+    border-radius:    16px;
+    background-color: @bg;
+    border:           1px solid;
+    border-color:     @border;
+    padding:          0;
+    children:         [ mainbox ];
+}
+
+mainbox {
+    spacing:  0;
+    padding:  0;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding:          18px 20px;
+    spacing:          12px;
+    background-color: @surface;
+    border:           0 0 1px 0 solid;
+    border-color:     @border;
+    border-radius:    16px 16px 0 0;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    font:       "Maple Mono NF Bold 13";
+}
+
+entry {
+    text-color:        @fg-bold;
+    placeholder:       "search";
+    placeholder-color: @muted;
+    cursor:            text;
+    font:              "Maple Mono NF 13";
+}
+
+listview {
+    lines:            8;
+    columns:          1;
+    spacing:          2px;
+    padding:          10px;
+    fixed-height:     true;
+    scrollbar:        false;
+    background-color: @bg;
+    border:           0;
+}
+
+element {
+    padding:          10px 14px;
+    spacing:          12px;
+    border-radius:    8px;
+    background-color: transparent;
+    text-color:       @fg;
+    children:         [ element-icon, element-text ];
+}
+
+element selected {
+    background-color: @accent;
+    text-color:       @bg;
+}
+
+element-icon {
+    size:             24px;
+    background-color: transparent;
+    vertical-align:   0.5;
+    border:           0;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0;
+    cursor:           pointer;
+}
+
+element selected element-text {
+    text-color: @bg;
+}
+
+element urgent {
+    background-color: @urgent;
+    text-color:       @bg;
+}
+
+element active {
+    background-color: @surface2;
+    text-color:       @fg-bold;
+}

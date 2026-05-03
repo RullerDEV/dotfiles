@@ -1,0 +1,113 @@
+[mgr]
+keymap = [
+  { on = "<Esc>",   run = "escape",                        desc = "Exit visual mode, clear selected, or cancel search" },
+  { on = "q",       run = "quit",                          desc = "Exit Yazi" },
+  { on = "Q",       run = "quit --no-cwd-file",            desc = "Exit Yazi without writing cwd-file" },
+
+  { on = "k",       run = "arrow -1",                      desc = "Up" },
+  { on = "j",       run = "arrow 1",                       desc = "Down" },
+  { on = "<Up>",    run = "arrow -1",                      desc = "Up" },
+  { on = "<Down>",  run = "arrow 1",                       desc = "Down" },
+  { on = "<C-u>",   run = "arrow -50%",                    desc = "Half page up" },
+  { on = "<C-d>",   run = "arrow 50%",                     desc = "Half page down" },
+  { on = "<C-b>",   run = "arrow -100%",                   desc = "Page up" },
+  { on = "<C-f>",   run = "arrow 100%",                    desc = "Page down" },
+
+  { on = "h",       run = "leave",                         desc = "Parent dir" },
+  { on = "l",       run = "enter",                         desc = "Enter dir" },
+  { on = "<Left>",  run = "leave",                         desc = "Parent dir" },
+  { on = "<Right>", run = "enter",                         desc = "Enter dir" },
+  { on = "<Enter>", run = "open",                          desc = "Open file" },
+  { on = "<C-Enter>", run = "open --interactive",          desc = "Open file interactively" },
+
+  { on = "g",       run = "arrow -99999999",               desc = "Top" },
+  { on = "G",       run = "arrow 99999999",                desc = "Bottom" },
+
+  { on = "<Space>", run = ["select --state=none", "arrow 1"], desc = "Toggle selection" },
+  { on = "v",       run = "visual_mode",                   desc = "Visual mode" },
+  { on = "V",       run = "visual_mode --unset",           desc = "Visual mode (unset)" },
+  { on = "<C-a>",   run = "select_all --state=true",       desc = "Select all" },
+  { on = "<C-r>",   run = "select_all --state=none",       desc = "Inverse selection" },
+
+  { on = "y",       run = "yank",                          desc = "Yank (copy)" },
+  { on = "x",       run = "yank --cut",                    desc = "Cut" },
+  { on = "p",       run = "paste",                         desc = "Paste" },
+  { on = "P",       run = "paste --force",                 desc = "Paste (overwrite)" },
+  { on = "d",       run = "remove",                        desc = "Trash" },
+  { on = "D",       run = "remove --permanently",          desc = "Delete permanently" },
+  { on = "a",       run = "create",                        desc = "Create file/dir (end with / for dir)" },
+  { on = "r",       run = "rename --cursor=before_ext",    desc = "Rename" },
+
+  { on = ".",       run = "hidden toggle",                 desc = "Toggle hidden" },
+  { on = "s",       run = "search fd",                     desc = "Search via fd" },
+  { on = "S",       run = "search rg",                     desc = "Search via rg" },
+  { on = "<C-s>",   run = "search none",                   desc = "Cancel search" },
+  { on = "z",       run = "plugin zoxide",                 desc = "Jump (zoxide)" },
+  { on = "Z",       run = "plugin fzf",                    desc = "Jump (fzf)" },
+
+  { on = "/",       run = "find --smart",                  desc = "Find next" },
+  { on = "?",       run = "find --previous --smart",       desc = "Find previous" },
+  { on = "n",       run = "find_arrow",                    desc = "Find next match" },
+  { on = "N",       run = "find_arrow --previous",         desc = "Find previous match" },
+
+  { on = "<Tab>",   run = "tab_switch 1 --relative",       desc = "Next tab" },
+  { on = "<S-Tab>", run = "tab_switch -1 --relative",      desc = "Prev tab" },
+  { on = "t",       run = "tab_create --current",          desc = "New tab here" },
+  { on = "<C-w>",   run = "tab_close",                     desc = "Close tab" },
+
+  { on = "o",       run = "open --interactive",            desc = "Open with chooser" },
+  { on = "<C-o>",   run = "shell --interactive",           desc = "Run shell command" },
+  { on = "<C-S-o>", run = "shell --block --interactive",   desc = "Run shell (block)" },
+
+  { on = "T",       run = 'shell "~/.config/hypr/scripts/theme-toggle.sh"', desc = "Toggle theme" },
+
+  { on = ":",       run = "help",                          desc = "Help" },
+  { on = "~",       run = "help",                          desc = "Help" },
+]
+
+[tasks]
+keymap = [
+  { on = "<Esc>",  run = "close", desc = "Hide" },
+  { on = "w",      run = "close", desc = "Hide" },
+  { on = "k",      run = "arrow -1" },
+  { on = "j",      run = "arrow 1" },
+  { on = "<Enter>", run = "inspect" },
+  { on = "x",      run = "cancel" },
+]
+
+[help]
+keymap = [
+  { on = "<Esc>", run = "escape" },
+  { on = "q",     run = "close" },
+  { on = "k",     run = "arrow -1" },
+  { on = "j",     run = "arrow 1" },
+]
+
+[input]
+keymap = [
+  { on = "<Esc>",   run = "close" },
+  { on = "<Enter>", run = "close --submit" },
+  { on = "<C-c>",   run = "close" },
+  { on = "<Backspace>", run = "backspace" },
+  { on = "<Delete>", run = "delete" },
+  { on = "<Left>",  run = "move -1" },
+  { on = "<Right>", run = "move 1" },
+  { on = "<Home>",  run = "move -999" },
+  { on = "<End>",   run = "move 999" },
+]
+
+[confirm]
+keymap = [
+  { on = "<Enter>", run = "submit" },
+  { on = "<Esc>",   run = "close" },
+  { on = "y",       run = "submit" },
+  { on = "n",       run = "close" },
+]
+
+[completion]
+keymap = [
+  { on = "<Esc>",   run = "close" },
+  { on = "<Tab>",   run = "arrow 1" },
+  { on = "<S-Tab>", run = "arrow -1" },
+  { on = "<Enter>", run = "close --submit" },
+]

@@ -1,0 +1,4 @@
+[flavor]
+dark  = "mono-dark"
+light = "mono-light"
+use   = ""

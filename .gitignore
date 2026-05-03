@@ -1,0 +1,14 @@
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+
+hypr/.config/hypr/themes/current.conf
+waybar/.config/waybar/themes/current.css
+kitty/.config/kitty/themes/current.conf
+rofi/.config/rofi/themes/current.rasi
+yazi/.config/yazi/themes/current.toml
+
+fish/.config/fish/fish_variables
+fish/.config/fish/conf.d/local.fish

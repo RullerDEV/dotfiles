@@ -1,0 +1,18 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    drun-display-format: "{name}";
+    sidebar-mode: false;
+    hover-select: false;
+    me-select-entry: "MousePrimary";
+    me-accept-entry: "MouseDPrimary";
+    terminal: "kitty";
+    sort: true;
+    sorting-method: "fzf";
+}
+
+@theme "~/.config/rofi/themes/current.rasi"

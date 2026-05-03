@@ -1,0 +1,10 @@
+@define-color bg #0a0a0a;
+@define-color bg_alpha rgba(10, 10, 10, 0.88);
+@define-color surface #141414;
+@define-color surface2 #1f1f1f;
+@define-color border #2a2a2a;
+@define-color muted #6e6e6e;
+@define-color fg #e8e8e8;
+@define-color fg_bold #fafafa;
+@define-color accent #fafafa;
+@define-color urgent #d4d4d4;

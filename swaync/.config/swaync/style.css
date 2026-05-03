@@ -1,0 +1,189 @@
+* {
+    font-family: "Maple Mono NF", "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    transition: background 200ms ease, color 200ms ease;
+}
+
+.notification-row {
+    outline: none;
+    margin: 6px 12px;
+    padding: 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: transparent;
+}
+
+.notification-background .notification,
+.notification-background .notification.critical,
+.notification-background .notification.low {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    background: #141414;
+    color: #e8e8e8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.notification-content {
+    padding: 12px 14px;
+    border-radius: 12px;
+}
+
+.summary {
+    font-weight: 700;
+    color: #fafafa;
+    font-size: 13px;
+}
+
+.time {
+    color: #6e6e6e;
+    font-size: 11px;
+}
+
+.body {
+    color: #e8e8e8;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.close-button {
+    background: transparent;
+    color: #6e6e6e;
+    border: none;
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin: 0;
+}
+
+.close-button:hover {
+    background: #2a2a2a;
+    color: #fafafa;
+}
+
+.notification-action {
+    background: #1f1f1f;
+    color: #e8e8e8;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    margin: 4px 6px 0 0;
+    padding: 6px 12px;
+}
+
+.notification-action:hover {
+    background: #fafafa;
+    color: #0a0a0a;
+}
+
+.control-center {
+    background: rgba(10, 10, 10, 0.92);
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 8px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.widget-title {
+    color: #fafafa;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+}
+
+.widget-title button {
+    background: #1f1f1f;
+    color: #e8e8e8;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+}
+
+.widget-title button:hover {
+    background: #fafafa;
+    color: #0a0a0a;
+}
+
+.widget-dnd {
+    color: #e8e8e8;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border-radius: 10px;
+    background: #141414;
+}
+
+.widget-dnd > switch {
+    background: #2a2a2a;
+    border-radius: 999px;
+    border: none;
+}
+
+.widget-dnd > switch:checked {
+    background: #fafafa;
+}
+
+.widget-dnd > switch slider {
+    background: #6e6e6e;
+    border-radius: 999px;
+}
+
+.widget-dnd > switch:checked slider {
+    background: #0a0a0a;
+}
+
+.widget-mpris {
+    color: #e8e8e8;
+    padding: 10px;
+    margin: 4px 0;
+    border-radius: 10px;
+    background: #141414;
+}
+
+.widget-volume,
+.widget-backlight {
+    color: #e8e8e8;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border-radius: 10px;
+    background: #141414;
+}
+
+trough {
+    background: #1f1f1f;
+    border-radius: 999px;
+    min-height: 6px;
+}
+
+slider {
+    background: #fafafa;
+    border-radius: 999px;
+    border: none;
+    min-height: 14px;
+    min-width: 14px;
+}
+
+highlight {
+    background: #fafafa;
+    border-radius: 999px;
+}
+
+scrollbar {
+    background: transparent;
+}
+
+scrollbar slider {
+    background: #2a2a2a;
+    min-width: 6px;
+    border-radius: 999px;
+}
+
+.floating-notifications {
+    background: transparent;
+}

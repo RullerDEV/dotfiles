@@ -1,0 +1,182 @@
+@import "themes/current.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Maple Mono NF", "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    min-height: 0;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+window#waybar {
+    background-color: @bg_alpha;
+    color: @fg;
+    border: 1px solid @border;
+    border-radius: 14px;
+}
+
+window#waybar.hidden {
+    opacity: 0.15;
+}
+
+tooltip {
+    background-color: @surface;
+    border: 1px solid @border;
+    border-radius: 10px;
+    color: @fg;
+    padding: 4px 2px;
+}
+
+tooltip label {
+    font-size: 11px;
+    color: @fg;
+    padding: 2px 6px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 6px 0;
+}
+
+#custom-launcher,
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#custom-theme,
+#custom-notif,
+#custom-power,
+#tray {
+    padding: 6px 0;
+    margin: 3px 4px;
+    border-radius: 8px;
+    background: @surface;
+    color: @fg;
+    min-width: 34px;
+}
+
+#custom-launcher {
+    font-size: 16px;
+    color: @fg_bold;
+    padding: 8px 0;
+    background: transparent;
+    margin-top: 6px;
+}
+
+#custom-launcher:hover {
+    color: @accent;
+    background: @surface;
+}
+
+#workspaces {
+    padding: 4px 0;
+    background: @surface;
+}
+
+#workspaces button {
+    padding: 4px 0;
+    margin: 2px 3px;
+    border-radius: 6px;
+    background: transparent;
+    color: @muted;
+    font-size: 9px;
+    min-width: 28px;
+    min-height: 20px;
+}
+
+#workspaces button:hover {
+    background: @surface2;
+    color: @fg;
+}
+
+#workspaces button.active {
+    background: @accent;
+    color: @bg;
+    min-height: 26px;
+}
+
+#workspaces button.urgent {
+    background: @urgent;
+    color: @bg;
+}
+
+#clock {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: @fg_bold;
+    padding: 10px 0;
+    background: @surface;
+}
+
+#cpu,
+#memory,
+#temperature,
+#pulseaudio {
+    font-size: 9px;
+    padding: 8px 0;
+    color: @fg;
+}
+
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#pulseaudio:hover,
+#custom-theme:hover,
+#custom-notif:hover,
+#custom-power:hover {
+    background: @surface2;
+    color: @fg_bold;
+}
+
+#temperature.critical {
+    background: @urgent;
+    color: @bg;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#custom-theme,
+#custom-notif,
+#custom-power {
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+#custom-power {
+    color: @fg;
+    margin-bottom: 6px;
+}
+
+#custom-power:hover {
+    background: @urgent;
+    color: @bg;
+}
+
+#tray {
+    padding: 4px 0;
+}
+
+#tray menu {
+    background: @surface;
+    border: 1px solid @border;
+    border-radius: 8px;
+    color: @fg;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @urgent;
+    border-radius: 6px;
+}

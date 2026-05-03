@@ -1,0 +1,42 @@
+[user]
+    name = lipedev
+    email = electrolipe3112@gmail.com
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[push]
+    autoSetupRemote = true
+
+[core]
+    editor = micro
+    pager = less -R
+
+[color]
+    ui = auto
+
+[alias]
+    co = checkout
+    br = branch
+    st = status -sb
+    ci = commit
+    cm = commit -m
+    a = add
+    aa = add -A
+    d = diff
+    ds = diff --staged
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    unstage = reset HEAD --
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    algorithm = histogram
+
+[rerere]
+    enabled = true
