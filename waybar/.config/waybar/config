@@ -1,132 +1,100 @@
 {
-    "layer": "top",
-    "position": "left",
-    "width": 44,
-    "margin-top": 12,
-    "margin-bottom": 12,
-    "margin-left": 10,
-    "spacing": 0,
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "fixed-center": true,
-    "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "height": 40,
+  "spacing": 2,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "reload_style_on_change": true,
 
-    "modules-left":   ["custom/launcher", "hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right":  ["tray", "pulseaudio", "cpu", "memory", "temperature", "custom/theme", "custom/notif", "custom/power"],
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "pulseaudio", "cpu", "memory", "custom/power"],
 
-    "custom/launcher": {
-        "format": "",
-        "tooltip-format": "Rofi drun",
-        "on-click": "rofi -show drun"
-    },
+  "custom/launcher": {
+    "format": "󰣇",
+    "tooltip-format": "Rofi drun",
+    "on-click": "rofi -show drun"
+  },
 
-    "hyprland/workspaces": {
-        "disable-scroll": false,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "active":  "●",
-            "default": "○",
-            "empty":   "○",
-            "urgent":  "!"
-        },
-        "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 5
-        }
-    },
-
-    "clock": {
-        "interval": 10,
-        "format": "{:%H\n%M}",
-        "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "month",
-            "on-scroll": 1,
-            "format": {
-                "months":   "<span color='#fafafa'><b>{}</b></span>",
-                "days":     "<span color='#e8e8e8'>{}</span>",
-                "weekdays": "<span color='#8a8a8a'><b>{}</b></span>",
-                "today":    "<span color='#fafafa'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions": {
-            "on-click-right": "mode",
-            "on-scroll-up":   "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-    },
-
-    "cpu": {
-        "format": "\n{usage}%",
-        "interval": 2,
-        "tooltip-format": "CPU {usage}%",
-        "on-click": "kitty --title btop btop"
-    },
-
-    "memory": {
-        "format": "\n{used:0.1f}G",
-        "interval": 5,
-        "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
-        "on-click": "kitty --title btop btop"
-    },
-
-    "temperature": {
-        "format": "\n{temperatureC}°",
-        "critical-threshold": 80,
-        "format-critical": "\n{temperatureC}°",
-        "tooltip-format": "{temperatureC}°C",
-        "interval": 5
-    },
-
-    "pulseaudio": {
-        "format":       "VOL\n{volume}%",
-        "format-muted": "MUTE",
-        "scroll-step": 2,
-        "on-click": "pavucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "tooltip-format": "{desc}  {volume}%"
-    },
-
-    "custom/theme": {
-        "exec": "sh -c 'theme=$(cat $HOME/.cache/theme 2>/dev/null || echo dark); echo \"T:$theme\"'",
-        "interval": 5,
-        "tooltip-format": "Toggle dark/light",
-        "on-click": "~/.config/hypr/scripts/theme-toggle.sh"
-    },
-
-    "custom/notif": {
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true,
-        "return-type": "json",
-        "format": "{icon}",
-        "format-icons": {
-            "notification":         "N",
-            "none":                 "",
-            "dnd-notification":     "D",
-            "dnd-none":             "",
-            "inhibited-notification":"N",
-            "inhibited-none":       "",
-            "dnd-inhibited-notification": "D",
-            "dnd-inhibited-none":   ""
-        },
-        "tooltip-format": "notifications"
-    },
-
-    "custom/power": {
-        "format": "PWR",
-        "tooltip-format": "Power menu",
-        "on-click": "wlogout -p layer-shell"
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 4,
-        "show-passive-items": false,
-        "icon-theme": "Papirus-Dark"
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{id}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false,
+    "persistent-workspaces": {
+      "*": 5
     }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 48,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "interval": 10,
+    "format": " {:%a %d %b}   {:%H:%M}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#cdd6f4'><b>{}</b></span>",
+        "days": "<span color='#bac2de'>{}</span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "tooltip-format": "CPU {usage}%",
+    "on-click": "kitty --title btop btop"
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G",
+    "interval": 5,
+    "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
+    "on-click": "kitty --title btop btop"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂯 {volume}%",
+    "format-muted": " muted",
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", ""]
+    },
+    "scroll-step": 2,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "tooltip-format": "{desc}  {volume}%"
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "format": "⏻",
+    "on-click": "wlogout -p layer-shell"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10,
+    "show-passive-items": true,
+    "icon-theme": "Papirus-Dark"
+  }
 }
