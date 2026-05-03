@@ -101,6 +101,8 @@ keymap = [
   { on = "<Enter>", run = "submit" },
   { on = "<Esc>",   run = "close" },
   { on = "y",       run = "submit" },
+  { on = "s",       run = "submit" },
+  { on = "S",       run = "submit" },
   { on = "n",       run = "close" },
 ]
 

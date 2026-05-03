@@ -9,9 +9,9 @@
   "fixed-center": true,
   "reload_style_on_change": true,
 
-  "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock"],
-  "modules-right": ["tray", "pulseaudio", "cpu", "memory", "custom/power"],
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["clock", "tray", "pulseaudio", "cpu", "memory", "custom/power"],
 
   "custom/launcher": {
     "format": "󰣇",
@@ -32,13 +32,14 @@
 
   "hyprland/window": {
     "format": "{}",
-    "max-length": 48,
+    "max-length": 32,
     "separate-outputs": true
   },
 
   "clock": {
-    "interval": 10,
-    "format": " {:%a %d %b}   {:%H:%M}",
+    "interval": 1,
+    "format": " {:%H:%M:%S}",
+    "tooltip": true,
     "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",

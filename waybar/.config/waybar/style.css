@@ -84,6 +84,9 @@ tooltip label {
 
 #window {
   color: @fg;
+  min-width: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 window#waybar.empty #window {
@@ -100,6 +103,10 @@ window#waybar.empty #window {
 
 #clock {
   color: @fg_bold;
+  font-weight: 700;
+  min-width: 120px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 #pulseaudio {

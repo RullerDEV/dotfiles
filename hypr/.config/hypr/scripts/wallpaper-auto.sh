@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INTERVAL="${WALLPAPER_INTERVAL:-900}"
+INTERVAL="${WALLPAPER_INTERVAL:-240}"
 SCRIPT="$HOME/.config/hypr/scripts/wallpaper.sh"
 LOCK="${XDG_RUNTIME_DIR:-/tmp}/wallpaper-auto.lock"
 
