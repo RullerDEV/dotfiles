@@ -1,0 +1,12 @@
+@define-color bg #0f1110;
+@define-color surface #171a18;
+@define-color surface_alpha rgba(23, 26, 24, 0.84);
+@define-color surface2 #242925;
+@define-color border rgba(244, 241, 234, 0.14);
+@define-color muted #8f9688;
+@define-color fg #e9e4d8;
+@define-color fg_bold #fbfaf6;
+@define-color accent #f4f1ea;
+@define-color urgent #c47b6f;
+@define-color control_bg rgba(15, 17, 16, 0.76);
+@define-color shadow rgba(0, 0, 0, 0.42);

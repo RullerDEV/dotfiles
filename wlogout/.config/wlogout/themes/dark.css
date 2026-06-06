@@ -1,0 +1,6 @@
+@define-color bg #0f1110;
+@define-color fg #e9e4d8;
+@define-color accent #f4f1ea;
+@define-color border rgba(244, 241, 234, 0.14);
+@define-color screen_bg rgba(15, 17, 16, 0.76);
+@define-color button_bg rgba(23, 26, 24, 0.78);

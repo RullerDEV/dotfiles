@@ -5,16 +5,32 @@ CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}"
 STATE_FILE="$CACHE_DIR/theme"
 mkdir -p "$CACHE_DIR"
 
-current="$(cat "$STATE_FILE" 2>/dev/null || echo dark)"
-if [ "$current" = "dark" ]; then
-    next="light"
-else
-    next="dark"
-fi
+current="$(cat "$STATE_FILE" 2>/dev/null || echo light)"
+mode="${1:-toggle}"
+
+case "$mode" in
+    toggle)
+        if [ "$current" = "dark" ]; then
+            next="light"
+        else
+            next="dark"
+        fi
+        ;;
+    light|dark)
+        next="$mode"
+        ;;
+    *)
+        echo "usage: $0 [toggle|light|dark]" >&2
+        exit 2
+        ;;
+esac
+
 echo -n "$next" > "$STATE_FILE"
 
 link() {
     local src="$1" dst="$2"
+    [ -e "$src" ] || return 0
+    mkdir -p "$(dirname "$dst")"
     ln -sfn "$src" "$dst"
 }
 
@@ -23,13 +39,15 @@ link "$HOME/.config/waybar/themes/${next}.css"       "$HOME/.config/waybar/theme
 link "$HOME/.config/kitty/themes/${next}.conf"       "$HOME/.config/kitty/themes/current.conf"
 link "$HOME/.config/rofi/themes/mono-${next}.rasi"   "$HOME/.config/rofi/themes/current.rasi"
 link "$HOME/.config/yazi/themes/mono-${next}.toml"   "$HOME/.config/yazi/themes/current.toml"
+link "$HOME/.config/swaync/themes/${next}.css"       "$HOME/.config/swaync/themes/current.css"
+link "$HOME/.config/wlogout/themes/${next}.css"      "$HOME/.config/wlogout/themes/current.css"
 
 if command -v hyprctl >/dev/null 2>&1; then
     hyprctl reload >/dev/null 2>&1 || true
 fi
 
 if pgrep -x waybar >/dev/null 2>&1; then
-    pkill -SIGUSR2 waybar || true
+    pkill -SIGUSR2 waybar >/dev/null 2>&1 || true
 fi
 
 if command -v kitty >/dev/null 2>&1; then
@@ -47,9 +65,6 @@ if pgrep -x yazi >/dev/null 2>&1; then
     pkill -USR1 yazi 2>/dev/null || true
 fi
 
-if command -v swaync-client >/dev/null 2>&1; then
-    swaync-client -t -sw >/dev/null 2>&1 || true
-    notify-send -a "theme" "tema: $next" -i "preferences-desktop-theme" 2>/dev/null || true
-elif command -v notify-send >/dev/null 2>&1; then
-    notify-send -a "theme" "tema: $next" 2>/dev/null || true
+if command -v notify-send >/dev/null 2>&1; then
+    notify-send -a "settings" "theme: $next" 2>/dev/null || true
 fi

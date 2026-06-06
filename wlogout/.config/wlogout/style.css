@@ -1,34 +1,36 @@
+@import "themes/current.css";
+
 * {
     background-image: none;
     box-shadow: none;
-    transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 window {
-    background: rgba(10, 10, 10, 0.92);
+    background: @screen_bg;
     font-family: "Maple Mono NF", "JetBrainsMono Nerd Font", monospace;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
-    color: #e8e8e8;
+    color: @fg;
 }
 
 button {
-    color: #e8e8e8;
-    background-color: #141414;
-    border: 1px solid #2a2a2a;
-    border-radius: 18px;
-    margin: 14px;
+    color: @fg;
+    background-color: @button_bg;
+    border: 1px solid @border;
+    border-radius: 14px;
+    margin: 12px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 28%;
+    background-size: 26%;
 }
 
 button:focus,
 button:active,
 button:hover {
-    background-color: #fafafa;
-    color: #0a0a0a;
-    border-color: #fafafa;
+    background-color: @accent;
+    color: @bg;
+    border-color: @accent;
     outline-style: none;
 }
 

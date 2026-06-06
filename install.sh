@@ -6,7 +6,7 @@ BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
 
 PACKAGES=(hypr waybar rofi kitty yazi swaync wlogout fish git)
 
-DEPS=(stow swww waybar kitty rofi swaync wlogout hyprlock yazi grim slurp wl-clipboard cliphist brightnessctl jq fd ripgrep fzf zoxide ffmpegthumbnailer poppler unarchiver swappy)
+DEPS=(stow swww waybar kitty rofi swaync wlogout hyprlock yazi grim slurp wl-clipboard cliphist brightnessctl jq fd ripgrep fzf zoxide ffmpegthumbnailer poppler unarchiver swappy libnotify eza bat)
 FONTS=(maplemono-nf)
 
 bold()  { printf "\033[1m%s\033[0m\n" "$*"; }
@@ -59,14 +59,17 @@ for pkg in "${PACKAGES[@]}"; do
     ok "stow $pkg"
 done
 
-bold "==> definindo tema inicial (dark)"
+bold "==> definindo tema inicial (light)"
 mkdir -p "$HOME/.cache"
-echo -n dark > "$HOME/.cache/theme"
-ln -sfn "$HOME/.config/hypr/themes/dark.conf"      "$HOME/.config/hypr/themes/current.conf"
-ln -sfn "$HOME/.config/waybar/themes/dark.css"     "$HOME/.config/waybar/themes/current.css"
-ln -sfn "$HOME/.config/kitty/themes/dark.conf"     "$HOME/.config/kitty/themes/current.conf"
-ln -sfn "$HOME/.config/rofi/themes/mono-dark.rasi" "$HOME/.config/rofi/themes/current.rasi"
-ln -sfn "$HOME/.config/yazi/themes/mono-dark.toml" "$HOME/.config/yazi/themes/current.toml"
+echo -n light > "$HOME/.cache/theme"
+echo -n clean > "$HOME/.cache/hypr-profile"
+ln -sfn "$HOME/.config/hypr/themes/light.conf"      "$HOME/.config/hypr/themes/current.conf"
+ln -sfn "$HOME/.config/waybar/themes/light.css"     "$HOME/.config/waybar/themes/current.css"
+ln -sfn "$HOME/.config/kitty/themes/light.conf"     "$HOME/.config/kitty/themes/current.conf"
+ln -sfn "$HOME/.config/rofi/themes/mono-light.rasi" "$HOME/.config/rofi/themes/current.rasi"
+ln -sfn "$HOME/.config/yazi/themes/mono-light.toml" "$HOME/.config/yazi/themes/current.toml"
+ln -sfn "$HOME/.config/swaync/themes/light.css"     "$HOME/.config/swaync/themes/current.css"
+ln -sfn "$HOME/.config/wlogout/themes/light.css"    "$HOME/.config/wlogout/themes/current.css"
 
 bold "==> recarregando servicos"
 if pgrep -x mako >/dev/null 2>&1; then
@@ -84,4 +87,4 @@ if ! pgrep -x swaync >/dev/null 2>&1 && command -v swaync >/dev/null 2>&1; then
     nohup swaync >/dev/null 2>&1 &
 fi
 
-ok "==> instalado. atalhos: SUPER+R (rofi), SUPER+T (toggle), SUPER+E (yazi), SUPER+SHIFT+L (lock), SUPER+SHIFT+E (logout)"
+ok "==> instalado. atalhos: SUPER+R (rofi), SUPER+T (toggle), SUPER+G (gamemode), Waybar settings (engrenagem), SUPER+E (yazi), SUPER+SHIFT+L (lock), SUPER+SHIFT+E (logout)"

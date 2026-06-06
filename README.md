@@ -1,6 +1,6 @@
 # dotfiles
 
-Hyprland mono rice — off-black `#0a0a0a` / off-white `#f5f5f5`, toggle dark/light por keybind, fonte Maple Mono NF, gerenciado com GNU Stow.
+Hyprland clean glass rice — off-white `#f4f1ea`, blur sutil, Waybar compacta no topo, settings por Rofi e gamemode minimo/performance. Fonte Maple Mono NF, gerenciado com GNU Stow.
 
 ![preview](preview.png)
 
@@ -18,6 +18,7 @@ Hyprland mono rice — off-black `#0a0a0a` / off-white `#f5f5f5`, toggle dark/li
 | **Hyprlock** | lockscreen |
 | **swww** | wallpaper engine animado |
 | **Fish** | shell |
+| **settings.sh** | app local de ajustes via Rofi |
 
 ## instalação
 
@@ -31,7 +32,7 @@ O `install.sh`:
 1. Verifica dependências e instala via `yay` se faltar
 2. Faz backup das configs atuais em `~/.config-backup-AAAAMMDD/`
 3. Aplica `stow` pra cada pacote
-4. Define tema inicial (dark) e recarrega serviços
+4. Define tema inicial (light/off-white), perfil clean e recarrega serviços
 
 ## keybinds principais
 
@@ -60,16 +61,37 @@ O `install.sh`:
 | `SUPER + 1-9` | workspace |
 | `SUPER + SHIFT + 1-9` | mover janela pro workspace |
 
+## settings
+
+Abra pela engrenagem da Waybar ou pelo terminal:
+
+```sh
+~/.config/hypr/scripts/settings.sh menu
+```
+
+Perfis:
+
+| perfil | uso |
+|---|---|
+| `clean` | off-white glass padrao |
+| `glass` | mais blur/transparencia |
+| `focus` | bonito, mas menos distracao |
+| `solid` | quase sem transparencia |
+
+O settings app tambem alterna tema, gamemode, wallpaper, resolucao do `DP-1`, restart da Waybar e reload do Hyprland.
+
+O `SUPER + G` ativa o gamemode: esconde Waybar, liga DND, remove blur/animacao/sombras/gaps/bordas, deixa opacidade solida e aplica ajustes de render/VRR. Desativar recarrega o perfil clean atual.
+
 ## paleta
 
 | | dark | light |
 |---|---|---|
-| bg | `#0a0a0a` | `#f5f5f5` |
-| surface | `#141414` | `#ebebeb` |
-| border | `#2a2a2a` | `#c8c8c8` |
-| muted | `#6e6e6e` | `#8a8a8a` |
-| fg | `#e8e8e8` | `#1a1a1a` |
-| accent | `#fafafa` | `#0a0a0a` |
+| bg | `#0f1110` | `#f4f1ea` |
+| surface | `#171a18` | `#fbfaf6` |
+| border | `#353a34` | `#d5ccbf` |
+| muted | `#8f9688` | `#7d766d` |
+| fg | `#e9e4d8` | `#24231f` |
+| accent | `#f4f1ea` | `#2d3530` |
 
 ## estrutura
 
@@ -91,7 +113,7 @@ Cada subpasta é um pacote `stow`. O comando `stow -t ~ <pkg>` cria os symlinks.
 
 ## customizar
 
-- **Tema**: edite `*/themes/{dark,light}.*` e rode `SUPER+T`
+- **Tema/perfis**: use a engrenagem da Waybar ou `rice` no fish
 - **Wallpapers**: jogue imagens em `~/Pictures/Wallpapers/` e `SUPER+W` cicla
 - **Keybinds**: `~/.config/hypr/hyprland.conf` (seção de `bind`)
 

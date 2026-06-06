@@ -1,101 +1,118 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 40,
-  "spacing": 2,
-  "exclusive": true,
-  "gtk-layer-shell": true,
-  "passthrough": false,
-  "fixed-center": true,
-  "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": ["clock", "wireplumber"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/kitty", "custom/control", "custom/thunar", "custom/code", "custom/firefox", "bluetooth", "network", "battery", "custom/power"],
 
-  "modules-left": ["custom/launcher", "hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "tray", "pulseaudio", "cpu", "memory", "custom/power"],
-
-  "custom/launcher": {
-    "format": "󰣇",
-    "tooltip-format": "Rofi drun",
-    "on-click": "rofi -show drun"
-  },
-
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{id}",
-    "all-outputs": true,
-    "disable-scroll": false,
-    "active-only": false,
-    "persistent-workspaces": {
-      "*": 5
-    }
-  },
-
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 32,
-    "separate-outputs": true
-  },
-
-  "clock": {
-    "interval": 1,
-    "format": " {:%H:%M:%S}",
-    "tooltip": true,
-    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "month",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#cdd6f4'><b>{}</b></span>",
-        "days": "<span color='#bac2de'>{}</span>",
-        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
-      }
+    "clock": {
+        "format": " {:%I:%M:%S %p}",
+        "interval": 1,
+        "tooltip": false
     },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
 
-  "cpu": {
-    "format": " {usage}%",
-    "interval": 2,
-    "tooltip-format": "CPU {usage}%",
-    "on-click": "kitty --title btop btop"
-  },
-
-  "memory": {
-    "format": " {used:0.1f}G",
-    "interval": 5,
-    "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
-    "on-click": "kitty --title btop btop"
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "󰂯 {volume}%",
-    "format-muted": " muted",
-    "format-icons": {
-      "headphone": "",
-      "default": ["", "", ""]
+    "wireplumber": {
+        "format": " {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "tooltip": false,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
-    "scroll-step": 2,
-    "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "tooltip-format": "{desc}  {volume}%"
-  },
 
-  "custom/power": {
-    "tooltip": false,
-    "format": "⏻",
-    "on-click": "wlogout -p layer-shell"
-  },
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{name} {windows}",
+        "format-window-separator": " ",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "persistent-workspaces": {
+            "DP-1": [1, 2, 3, 4, 5],
+            "HDMI-A-3": [6, 7, 8, 9, 10]
+        },
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<kitty|foot|Alacritty|org.wezfurlong.wezterm>": "",
+            "class<firefox|org.mozilla.firefox|librewolf>": "",
+            "class<brave-browser|Brave-browser|chromium|google-chrome|Google-chrome>": "",
+            "class<Code|code|code-oss|codium|VSCodium>": "󰨞",
+            "class<thunar|nemo|org.gnome.Nautilus|dolphin>": "",
+            "class<discord|vesktop|WebCord>": "",
+            "class<Spotify|spotify>": "",
+            "class<steam|Steam>": "",
+            "class<org.telegram.desktop|TelegramDesktop>": "",
+            "title<.*WhatsApp.*|.*whatsapp.*>": "",
+            "title<.*YouTube.*|.*youtube.*>": "",
+            "class<mpv|vlc|Celluloid|celluloid>": "",
+            "class<Gimp|gimp>": "",
+            "class<obs|com.obsproject.Studio>": "󰻂",
+            "title<.*nvim.*|.*vim.*>": ""
+        }
+    },
 
-  "tray": {
-    "icon-size": 16,
-    "spacing": 10,
-    "show-passive-items": true,
-    "icon-theme": "Papirus-Dark"
-  }
+    "custom/kitty": {
+        "format": "",
+        "on-click": "kitty",
+        "tooltip": false
+    },
+
+    "custom/control": {
+        "format": "",
+        "on-click": "$HOME/.config/hypr/scripts/settings.sh menu",
+        "tooltip": false
+    },
+
+    "custom/thunar": {
+        "format": "",
+        "on-click": "thunar",
+        "tooltip": false
+    },
+
+    "custom/code": {
+        "format": "",
+        "on-click": "code",
+        "tooltip": false
+    },
+
+    "custom/firefox": {
+        "format": "",
+        "on-click": "firefox",
+        "tooltip": false
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰌘",
+        "format-disconnected": "󰌙",
+        "on-click": "kitty --title nmtui -e nmtui",
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": true,
+        "interval": 30
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout -p layer-shell",
+        "tooltip": false
+    }
 }

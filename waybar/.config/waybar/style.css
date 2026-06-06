@@ -1,134 +1,144 @@
-@define-color bg #0a0a0a;
-@define-color bg_alpha rgba(10, 10, 10, 0.94);
-@define-color surface #141414;
-@define-color surface2 #1f1f1f;
-@define-color border #2a2a2a;
-@define-color muted #6e6e6e;
-@define-color fg #e8e8e8;
-@define-color fg_bold #fafafa;
-@define-color accent #fafafa;
-@define-color urgent #d4d4d4;
+@import url("themes/current.css");
+@define-color color1 @accent2;
+@define-color color7 @fg;
+@define-color background transparent;
 
 * {
-  min-height: 0;
-  min-width: 0;
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font Propo", "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
-  font-size: 15px;
-  font-weight: 600;
+    min-height: 0;
+    min-width: 0;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono Nerd Font", "Symbols Nerd Font", monospace;
+    color: @fg;
 }
 
 window#waybar {
-  background-color: @bg_alpha;
-  color: @fg;
-  border: 1px solid @border;
-  border-radius: 14px;
+    all: unset;
+    background-color: @background;
+    color: @color1;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin-top: 8px;
+    margin-bottom: -8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none;
+    padding: 8px 10px;
+}
+
+.modules-center {
+    min-width: 150.5px;
 }
 
 tooltip {
-  background-color: @surface;
-  border: 1px solid @border;
-  border-radius: 10px;
-  padding: 4px 2px;
+    color: @fg;
+    background-color: @surface;
+    border: 1px solid @border;
+    border-radius: 8px;
 }
 
-tooltip label {
-  color: @fg;
+#custom-kitty:hover,
+#custom-control:hover,
+#custom-gimp:hover,
+#custom-thunar:hover,
+#custom-code:hover,
+#custom-firefox:hover,
+#clock:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-cpu:hover,
+#custom-memory:hover,
+#custom-gpu:hover,
+#custom-colorpicker:hover,
+#custom-power:hover,
+#wireplumber:hover {
+    transition: all 0.3s ease;
+    color: @accent2;
 }
 
-#workspaces button,
-#clock,
-#pulseaudio,
-#custom-launcher,
-#custom-power,
-#cpu,
-#tray,
-#memory,
-#window {
-  padding: 0.3rem 0.75rem;
-  margin: 0.4rem 0.25rem;
-  border-radius: 8px;
-  background-color: @surface;
-}
-
-#custom-launcher {
-  color: @fg_bold;
-  font-size: 18px;
-}
-
-#custom-power {
-  color: @fg;
-  font-size: 18px;
+#workspaces {
+    padding: 0px 5px;
 }
 
 #workspaces button {
-  color: @muted;
-  padding: 0.3rem 0.7rem;
+    all: unset;
+    margin: 0px 6px;
+    padding: 0px 8px;
+    background: @module_bg;
+    border-radius: 999px;
+    transition: all 0.3s;
+    min-width: 18px;
+    min-height: 22px;
+    color: @fg;
 }
 
 #workspaces button:hover {
-  color: @fg;
-  background-color: @surface2;
+    background: @module_hover;
 }
 
 #workspaces button.active {
-  background-color: @accent;
-  color: @bg;
+    border: none;
+    border-radius: 10px;
+    background: @accent2;
+    min-width: 34px;
 }
 
-#workspaces button.urgent {
-  background-color: @urgent;
-  color: @bg;
+#workspaces button:hover label,
+#workspaces button.active label {
+    color: @bg;
 }
 
-#window {
-  color: @fg;
-  min-width: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+#group-expand {
+    padding: 0px 5px;
+    transition: all 0.3s ease;
 }
 
-window#waybar.empty #window {
-  background-color: transparent;
+#battery {
+    color: @fg;
+    padding: 0 6px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 
-#cpu {
-  color: @fg;
+#battery:hover {
+    color: @accent2;
 }
 
-#memory {
-  color: @fg;
+#custom-expand {
+    padding: 0px 5px;
+    color: @fg;
+    transition: all 0.3s ease;
 }
 
-#clock {
-  color: @fg_bold;
-  font-weight: 700;
-  min-width: 120px;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+#custom-expand:hover {
+    color: @accent2;
 }
 
-#pulseaudio {
-  color: @fg;
+#custom-colorpicker,
+#custom-cpu,
+#custom-memory,
+#custom-gpu,
+#wireplumber,
+#bluetooth,
+#network,
+#custom-power,
+#clock,
+#custom-kitty,
+#custom-control,
+#custom-gimp,
+#custom-thunar,
+#custom-code,
+#custom-firefox {
+    margin: 0 2px;
+    padding: 0 6px;
+    min-height: 22px;
+    color: @fg;
+    transition: all 0.3s ease;
 }
 
-#pulseaudio.muted {
-  color: @muted;
-}
-
-#tray {
-  color: @fg;
-}
-
-#custom-power:hover,
-#custom-launcher:hover,
-#cpu:hover,
-#memory:hover,
-#clock:hover,
-#pulseaudio:hover,
-#window:hover,
-#tray:hover {
-  background-color: @surface2;
-  color: @fg_bold;
+#custom-endpoint {
+    color: transparent;
 }

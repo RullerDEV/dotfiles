@@ -31,6 +31,8 @@ abbr -a dot   'cd ~/dotfiles'
 abbr -a hyprr 'hyprctl reload'
 abbr -a wbr   'pkill -SIGUSR2 waybar'
 abbr -a tt    '~/.config/hypr/scripts/theme-toggle.sh'
+abbr -a rice  '~/.config/hypr/scripts/settings.sh menu'
+abbr -a gm    '~/.config/hypr/scripts/gamemode.sh toggle'
 
 abbr -a ll    'eza -la --icons --group-directories-first'
 abbr -a la    'eza -a --icons'

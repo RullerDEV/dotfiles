@@ -1,12 +1,14 @@
+@import "themes/current.css";
+
 * {
     font-family: "Maple Mono NF", "JetBrainsMono Nerd Font", monospace;
-    font-size: 13px;
-    transition: background 200ms ease, color 200ms ease;
+    font-size: 12px;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .notification-row {
     outline: none;
-    margin: 6px 12px;
+    margin: 6px 10px;
     padding: 0;
 }
 
@@ -20,38 +22,38 @@
 .notification-background .notification.low {
     margin: 0;
     padding: 0;
-    border: 1px solid #2a2a2a;
+    border: 1px solid @border;
     border-radius: 12px;
-    background: #141414;
-    color: #e8e8e8;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    background: @surface_alpha;
+    color: @fg;
+    box-shadow: 0 12px 34px @shadow;
 }
 
 .notification-content {
-    padding: 12px 14px;
+    padding: 11px 13px;
     border-radius: 12px;
 }
 
 .summary {
     font-weight: 700;
-    color: #fafafa;
-    font-size: 13px;
+    color: @fg_bold;
+    font-size: 12px;
 }
 
 .time {
-    color: #6e6e6e;
-    font-size: 11px;
+    color: @muted;
+    font-size: 10px;
 }
 
 .body {
-    color: #e8e8e8;
-    font-size: 12px;
+    color: @fg;
+    font-size: 11px;
     margin-top: 2px;
 }
 
 .close-button {
     background: transparent;
-    color: #6e6e6e;
+    color: @muted;
     border: none;
     border-radius: 8px;
     padding: 2px 8px;
@@ -59,30 +61,31 @@
 }
 
 .close-button:hover {
-    background: #2a2a2a;
-    color: #fafafa;
+    background: @surface2;
+    color: @fg_bold;
 }
 
 .notification-action {
-    background: #1f1f1f;
-    color: #e8e8e8;
-    border: 1px solid #2a2a2a;
+    background: @surface2;
+    color: @fg;
+    border: 1px solid @border;
     border-radius: 8px;
     margin: 4px 6px 0 0;
     padding: 6px 12px;
 }
 
 .notification-action:hover {
-    background: #fafafa;
-    color: #0a0a0a;
+    background: @accent;
+    color: @bg;
 }
 
 .control-center {
-    background: rgba(10, 10, 10, 0.92);
-    border: 1px solid #2a2a2a;
+    background: @control_bg;
+    border: 1px solid @border;
     border-radius: 16px;
     padding: 10px;
     margin: 8px;
+    box-shadow: 0 18px 46px @shadow;
 }
 
 .control-center-list {
@@ -90,87 +93,73 @@
 }
 
 .widget-title {
-    color: #fafafa;
-    font-size: 14px;
+    color: @fg_bold;
+    font-size: 13px;
     font-weight: 700;
     padding: 8px 10px;
     margin-bottom: 6px;
 }
 
 .widget-title button {
-    background: #1f1f1f;
-    color: #e8e8e8;
-    border: 1px solid #2a2a2a;
+    background: @surface2;
+    color: @fg;
+    border: 1px solid @border;
     border-radius: 8px;
     padding: 4px 10px;
     font-size: 11px;
 }
 
 .widget-title button:hover {
-    background: #fafafa;
-    color: #0a0a0a;
+    background: @accent;
+    color: @bg;
 }
 
-.widget-dnd {
-    color: #e8e8e8;
+.widget-dnd,
+.widget-mpris,
+.widget-volume,
+.widget-backlight {
+    color: @fg;
     padding: 8px 10px;
     margin: 4px 0;
     border-radius: 10px;
-    background: #141414;
+    background: @surface_alpha;
 }
 
 .widget-dnd > switch {
-    background: #2a2a2a;
+    background: @surface2;
     border-radius: 999px;
     border: none;
 }
 
 .widget-dnd > switch:checked {
-    background: #fafafa;
+    background: @accent;
 }
 
 .widget-dnd > switch slider {
-    background: #6e6e6e;
+    background: @muted;
     border-radius: 999px;
 }
 
 .widget-dnd > switch:checked slider {
-    background: #0a0a0a;
-}
-
-.widget-mpris {
-    color: #e8e8e8;
-    padding: 10px;
-    margin: 4px 0;
-    border-radius: 10px;
-    background: #141414;
-}
-
-.widget-volume,
-.widget-backlight {
-    color: #e8e8e8;
-    padding: 8px 10px;
-    margin: 4px 0;
-    border-radius: 10px;
-    background: #141414;
+    background: @bg;
 }
 
 trough {
-    background: #1f1f1f;
+    background: @surface2;
     border-radius: 999px;
     min-height: 6px;
 }
 
 slider {
-    background: #fafafa;
+    background: @accent;
     border-radius: 999px;
     border: none;
-    min-height: 14px;
-    min-width: 14px;
+    min-height: 13px;
+    min-width: 13px;
 }
 
 highlight {
-    background: #fafafa;
+    background: @accent;
     border-radius: 999px;
 }
 
@@ -179,7 +168,7 @@ scrollbar {
 }
 
 scrollbar slider {
-    background: #2a2a2a;
+    background: @border;
     min-width: 6px;
     border-radius: 999px;
 }

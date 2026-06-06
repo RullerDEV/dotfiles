@@ -1,22 +1,22 @@
 * {
-    bg:        #0a0a0a;
-    surface:   #141414;
-    surface2:  #1f1f1f;
-    border:    #2a2a2a;
-    muted:     #6e6e6e;
-    fg:        #e8e8e8;
-    fg-bold:   #fafafa;
-    accent:    #fafafa;
-    urgent:    #d4d4d4;
+    bg:        #0f1110;
+    surface:   #171a18;
+    surface2:  #242925;
+    border:    #353a34;
+    muted:     #8f9688;
+    fg:        #e9e4d8;
+    fg-bold:   #fbfaf6;
+    accent:    #f4f1ea;
+    urgent:    #c47b6f;
 
     background-color: transparent;
     text-color:       @fg;
-    font:             "Maple Mono NF 12";
+    font:             "Maple Mono NF 11";
 }
 
 window {
-    width:            640px;
-    border-radius:    16px;
+    width:            560px;
+    border-radius:    14px;
     background-color: @bg;
     border:           1px solid;
     border-color:     @border;
@@ -31,18 +31,18 @@ mainbox {
 }
 
 inputbar {
-    padding:          18px 20px;
+    padding:          14px 16px;
     spacing:          12px;
     background-color: @surface;
     border:           0 0 1px 0 solid;
     border-color:     @border;
-    border-radius:    16px 16px 0 0;
+    border-radius:    14px 14px 0 0;
     children:         [ prompt, entry ];
 }
 
 prompt {
     text-color: @accent;
-    font:       "Maple Mono NF Bold 13";
+    font:       "Maple Mono NF Bold 12";
 }
 
 entry {
@@ -50,11 +50,11 @@ entry {
     placeholder:       "search";
     placeholder-color: @muted;
     cursor:            text;
-    font:              "Maple Mono NF 13";
+    font:              "Maple Mono NF 12";
 }
 
 listview {
-    lines:            8;
+    lines:            10;
     columns:          1;
     spacing:          2px;
     padding:          10px;
@@ -65,9 +65,9 @@ listview {
 }
 
 element {
-    padding:          10px 14px;
+    padding:          9px 12px;
     spacing:          12px;
-    border-radius:    8px;
+    border-radius:    7px;
     background-color: transparent;
     text-color:       @fg;
     children:         [ element-icon, element-text ];
@@ -79,7 +79,7 @@ element selected {
 }
 
 element-icon {
-    size:             24px;
+    size:             22px;
     background-color: transparent;
     vertical-align:   0.5;
     border:           0;
